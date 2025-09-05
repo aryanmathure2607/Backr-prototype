@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    /* ... other variables */
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+     /* ... other dark variables */
+  }
+}
+
+@layer components {
+    .glowing-btn {
+        @apply relative overflow-hidden;
+    }
+    .glowing-btn::before {
+        content: '';
+        @apply absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-gradient-to-r from-transparent via-primary to-transparent animate-[spin_4s_linear_infinite];
+    }
+    .glowing-btn span {
+        @apply relative z-10;
+    }
+}
